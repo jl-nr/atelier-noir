@@ -7,6 +7,9 @@ from .transformations import (
     enhance_shadows,
     apply_monochrome,
     apply_dark_theme,
+    add_vignette,
+    add_film_grain,
+    apply_cinematic_dark_theme,
 )
 
 __version__ = "0.1.0"
@@ -15,4 +18,7 @@ __all__ = [
     "enhance_shadows",
     "apply_monochrome",
     "apply_dark_theme",
+    "add_vignette",
+    "add_film_grain",
+    "apply_cinematic_dark_theme",
 ]

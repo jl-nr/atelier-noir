@@ -12,6 +12,7 @@ from .transformations import (
     enhance_shadows,
     apply_monochrome,
     apply_dark_theme,
+    apply_cinematic_dark_theme,
 )
 from .pipeline import process_batch
 
@@ -33,6 +34,9 @@ Examples:
 
   # Custom contrast and shadow settings
   atelier-noir input.jpg -o output.jpg --contrast 2.0 --shadows 0.5
+
+  # Cinematic dark look with vignette and grain
+  atelier-noir input.jpg -o output.jpg --cinematic
         """
     )
 
@@ -91,6 +95,23 @@ Examples:
         help='Overwrite existing output files (batch mode only)'
     )
 
+    # Look presets
+    parser.add_argument(
+        '--cinematic',
+        action='store_true',
+        help='Use cinematic dark theme (contrast + shadows + vignette + grain)'
+    )
+    parser.add_argument(
+        '--no-vignette',
+        action='store_true',
+        help='Disable vignette (only meaningful with --cinematic)'
+    )
+    parser.add_argument(
+        '--no-grain',
+        action='store_true',
+        help='Disable film grain (only meaningful with --cinematic)'
+    )
+
     args = parser.parse_args()
 
     # Batch processing mode
@@ -107,6 +128,9 @@ Examples:
             shadow_factor=args.shadows,
             monochrome=args.monochrome,
             monochrome_style=args.monochrome_style,
+            cinematic=args.cinematic,
+            vignette=None if not args.cinematic else (False if args.no_vignette else True),
+            grain=None if not args.cinematic else (False if args.no_grain else True),
             overwrite=args.overwrite
         )
 
@@ -133,13 +157,24 @@ Examples:
         image = Image.open(input_path)
 
         # Apply transformations
-        processed = apply_dark_theme(
-            image,
-            contrast_factor=args.contrast,
-            shadow_factor=args.shadows,
-            monochrome=args.monochrome,
-            monochrome_style=args.monochrome_style
-        )
+        if args.cinematic:
+            processed = apply_cinematic_dark_theme(
+                image,
+                contrast_factor=args.contrast,
+                shadow_factor=args.shadows,
+                monochrome=args.monochrome,
+                monochrome_style=args.monochrome_style,
+                vignette=not args.no_vignette,
+                grain=not args.no_grain,
+            )
+        else:
+            processed = apply_dark_theme(
+                image,
+                contrast_factor=args.contrast,
+                shadow_factor=args.shadows,
+                monochrome=args.monochrome,
+                monochrome_style=args.monochrome_style
+            )
 
         # Determine output path
         if args.output:
