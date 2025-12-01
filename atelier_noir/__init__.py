@@ -10,6 +10,7 @@ from .transformations import (
     add_vignette,
     add_film_grain,
     apply_cinematic_dark_theme,
+    apply_noir_preset,
 )
 
 __version__ = "0.1.0"
@@ -21,4 +22,5 @@ __all__ = [
     "add_vignette",
     "add_film_grain",
     "apply_cinematic_dark_theme",
+    "apply_noir_preset",
 ]

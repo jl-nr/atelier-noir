@@ -245,3 +245,19 @@ def apply_cinematic_dark_theme(
         result = add_film_grain(result, intensity=grain_intensity, monochrome=True)
 
     return result
+
+
+def apply_noir_preset(image):
+    """
+    Small, opinionated preset for a classic noir look.
+
+    This is a convenience wrapper around `apply_dark_theme` tuned for
+    strong contrast and moody monochrome.
+    """
+    return apply_dark_theme(
+        image,
+        contrast_factor=1.8,
+        shadow_factor=0.6,
+        monochrome=True,
+        monochrome_style="moody",
+    )
