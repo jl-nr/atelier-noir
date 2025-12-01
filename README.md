@@ -9,6 +9,7 @@ A neat and small Python tool for applying dark-themed transformations to images:
 - **Monochrome Filters**: Multiple dark-themed monochrome styles
 - **Batch Processing**: Process entire directories of images
 - **CLI & Library**: Use as a command-line tool or import as a Python library
+ - **Cinematic Look (New)**: Optional vignette and film grain preset for a moody, filmic dark theme
 
 ## Installation
 
@@ -40,6 +41,12 @@ atelier-noir input.jpg -o output.jpg --contrast 2.0 --shadows 0.5
 
 # Different monochrome styles
 atelier-noir input.jpg -o output.jpg --monochrome --monochrome-style moody
+
+# Cinematic preset with vignette + grain
+atelier-noir input.jpg -o output.jpg --cinematic
+
+# Cinematic without grain
+atelier-noir input.jpg -o output.jpg --cinematic --no-grain
 ```
 
 #### Batch Processing
@@ -51,6 +58,9 @@ atelier-noir --batch input_dir/ output_dir/
 # Batch with custom settings
 atelier-noir --batch input_dir/ output_dir/ --contrast 1.8 --shadows 0.6 --monochrome
 
+# Batch with cinematic preset
+atelier-noir --batch input_dir/ output_dir/ --cinematic
+
 # Overwrite existing files
 atelier-noir --batch input_dir/ output_dir/ --overwrite
 ```
@@ -58,7 +68,15 @@ atelier-noir --batch input_dir/ output_dir/ --overwrite
 ### Python Library
 
 ```python
-from atelier_noir import boost_contrast, enhance_shadows, apply_monochrome, apply_dark_theme
+from atelier_noir import (
+    boost_contrast,
+    enhance_shadows,
+    apply_monochrome,
+    apply_dark_theme,
+    add_vignette,
+    add_film_grain,
+    apply_cinematic_dark_theme,
+)
 from PIL import Image
 
 # Load an image
@@ -79,6 +97,16 @@ dark_image = apply_dark_theme(
 )
 
 dark_image.save('output.jpg')
+
+# Apply cinematic dark theme in one go
+cinematic = apply_cinematic_dark_theme(
+    image,
+    contrast_factor=1.6,
+    shadow_factor=0.65,
+    monochrome=True,
+    monochrome_style='moody',
+)
+cinematic.save('cinematic.jpg')
 ```
 
 #### Batch Processing (Library)
@@ -110,6 +138,9 @@ print(f"Errors: {stats['errors']}")
   - `dark`: Darkened with increased contrast (default)
   - `high_contrast`: High contrast monochrome
   - `moody`: Moody, darker monochrome
+ - `--cinematic`: Enable cinematic preset (contrast + shadows + vignette + grain)
+ - `--no-vignette`: Disable vignette when `--cinematic` is used
+ - `--no-grain`: Disable film grain when `--cinematic` is used
 
 ## Examples
 
