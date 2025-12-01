@@ -11,6 +11,7 @@ from .transformations import (
     add_film_grain,
     apply_cinematic_dark_theme,
     apply_noir_preset,
+    apply_dramatic_preset,
 )
 
 __version__ = "0.1.0"
@@ -23,4 +24,5 @@ __all__ = [
     "add_film_grain",
     "apply_cinematic_dark_theme",
     "apply_noir_preset",
+    "apply_dramatic_preset",
 ]

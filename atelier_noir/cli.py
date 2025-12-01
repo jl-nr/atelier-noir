@@ -14,6 +14,7 @@ from .transformations import (
     apply_dark_theme,
     apply_cinematic_dark_theme,
     apply_noir_preset,
+    apply_dramatic_preset,
 )
 from .pipeline import process_batch
 
@@ -120,6 +121,11 @@ Examples:
         action='store_true',
         help='Use noir preset (strong contrast, moody monochrome)'
     )
+    parser.add_argument(
+        '--dramatic',
+        action='store_true',
+        help='Use dramatic preset (very high contrast, deep shadows)'
+    )
 
     args = parser.parse_args()
 
@@ -139,6 +145,7 @@ Examples:
             monochrome_style=args.monochrome_style,
             cinematic=args.cinematic,
             noir=args.noir,
+            dramatic=args.dramatic,
             vignette=None if not args.cinematic else (False if args.no_vignette else True),
             grain=None if not args.cinematic else (False if args.no_grain else True),
             overwrite=args.overwrite
@@ -169,6 +176,8 @@ Examples:
         # Apply transformations
         if args.noir:
             processed = apply_noir_preset(image)
+        elif args.dramatic:
+            processed = apply_dramatic_preset(image)
         elif args.cinematic:
             processed = apply_cinematic_dark_theme(
                 image,
