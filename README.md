@@ -25,7 +25,7 @@ Or install dependencies directly:
 pip install -r requirements.txt
 ```
 
-## Usage
+## Usage Instructions
 
 ### Command Line Interface
 
