@@ -5,7 +5,7 @@ Batch processing pipeline for image transformations.
 import os
 from pathlib import Path
 from PIL import Image
-from .transformations import apply_dark_theme, apply_cinematic_dark_theme, apply_noir_preset
+from .transformations import apply_dark_theme, apply_cinematic_dark_theme, apply_noir_preset, apply_dramatic_preset
 
 
 def process_batch(
@@ -17,6 +17,7 @@ def process_batch(
     monochrome_style='dark',
     cinematic=False,
     noir=False,
+    dramatic=False,
     vignette=None,
     grain=None,
     extensions=None,
@@ -34,6 +35,7 @@ def process_batch(
         monochrome_style: Style of monochrome conversion
         cinematic: If True, use the higher-level cinematic dark theme
         noir: If True, use the noir preset (overrides cinematic/basic flags)
+        dramatic: If True, use the dramatic preset (overrides cinematic/basic flags)
         vignette: Optional bool to override vignette on/off for cinematic mode
         grain: Optional bool to override film grain on/off for cinematic mode
         extensions: List of file extensions to process (default: ['.jpg', '.jpeg', '.png', '.bmp'])
@@ -79,6 +81,8 @@ def process_batch(
             # Apply transformations
             if noir:
                 processed = apply_noir_preset(image)
+            elif dramatic:
+                processed = apply_dramatic_preset(image)
             elif cinematic:
                 processed = apply_cinematic_dark_theme(
                     image,

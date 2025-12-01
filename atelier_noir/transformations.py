@@ -261,3 +261,19 @@ def apply_noir_preset(image):
         monochrome=True,
         monochrome_style="moody",
     )
+
+
+def apply_dramatic_preset(image):
+    """
+    Small, opinionated preset for a bold, dramatic look.
+
+    This is a convenience wrapper around `apply_dark_theme` tuned for
+    very high contrast and deep shadows, creating a striking, bold effect.
+    """
+    return apply_dark_theme(
+        image,
+        contrast_factor=2.2,
+        shadow_factor=0.5,
+        monochrome=False,
+        monochrome_style="dark",
+    )
