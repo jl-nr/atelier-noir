@@ -5,7 +5,7 @@ Batch processing pipeline for image transformations.
 import os
 from pathlib import Path
 from PIL import Image
-from .transformations import apply_dark_theme
+from .transformations import apply_dark_theme, apply_cinematic_dark_theme
 
 
 def process_batch(
@@ -15,6 +15,9 @@ def process_batch(
     shadow_factor=0.7,
     monochrome=False,
     monochrome_style='dark',
+    cinematic=False,
+    vignette=None,
+    grain=None,
     extensions=None,
     overwrite=False
 ):
@@ -28,6 +31,9 @@ def process_batch(
         shadow_factor: Shadow enhancement factor
         monochrome: Whether to apply monochrome filter
         monochrome_style: Style of monochrome conversion
+        cinematic: If True, use the higher-level cinematic dark theme
+        vignette: Optional bool to override vignette on/off for cinematic mode
+        grain: Optional bool to override film grain on/off for cinematic mode
         extensions: List of file extensions to process (default: ['.jpg', '.jpeg', '.png', '.bmp'])
         overwrite: Whether to overwrite existing files
 
@@ -69,13 +75,24 @@ def process_batch(
             image = Image.open(img_path)
 
             # Apply transformations
-            processed = apply_dark_theme(
-                image,
-                contrast_factor=contrast_factor,
-                shadow_factor=shadow_factor,
-                monochrome=monochrome,
-                monochrome_style=monochrome_style
-            )
+            if cinematic:
+                processed = apply_cinematic_dark_theme(
+                    image,
+                    contrast_factor=contrast_factor,
+                    shadow_factor=shadow_factor,
+                    monochrome=monochrome,
+                    monochrome_style=monochrome_style,
+                    vignette=True if vignette is None else vignette,
+                    grain=True if grain is None else grain,
+                )
+            else:
+                processed = apply_dark_theme(
+                    image,
+                    contrast_factor=contrast_factor,
+                    shadow_factor=shadow_factor,
+                    monochrome=monochrome,
+                    monochrome_style=monochrome_style
+                )
 
             # Save processed image
             processed.save(output_file)
