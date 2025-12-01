@@ -171,4 +171,4 @@ atelier-noir --batch photos/ dark_photos/ --contrast 1.8 --shadows 0.65 --monoch
 
 ## License
 
-MIT (check [LICENSE](LICENSE) file)
+Apache (check [LICENSE](LICENSE) file)
