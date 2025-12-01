@@ -9,8 +9,8 @@ A neat and small Python tool for applying dark-themed transformations to images:
 - **Monochrome Filters**: Multiple dark-themed monochrome styles
 - **Batch Processing**: Process entire directories of images
 - **CLI & Library**: Use as a command-line tool or import as a Python library
- - **Cinematic Look (New)**: Optional vignette and film grain preset for a moody, filmic dark theme
- - **Noir Preset (New)**: One-shot strong-contrast, moody monochrome preset
+ - **Cinematic Look**: Optional vignette and film grain preset for a moody, filmic dark theme
+ - **Noir Preset**: One-shot strong-contrast, moody monochrome preset
 
 ## Installation
 
