@@ -10,6 +10,7 @@ A neat and small Python tool for applying dark-themed transformations to images:
 - **Batch Processing**: Process entire directories of images
 - **CLI & Library**: Use as a command-line tool or import as a Python library
  - **Cinematic Look (New)**: Optional vignette and film grain preset for a moody, filmic dark theme
+ - **Noir Preset (New)**: One-shot strong-contrast, moody monochrome preset
 
 ## Installation
 
@@ -47,6 +48,9 @@ atelier-noir input.jpg -o output.jpg --cinematic
 
 # Cinematic without grain
 atelier-noir input.jpg -o output.jpg --cinematic --no-grain
+
+# Noir preset (high contrast, moody monochrome)
+atelier-noir input.jpg -o output.jpg --noir
 ```
 
 #### Batch Processing
@@ -76,6 +80,7 @@ from atelier_noir import (
     add_vignette,
     add_film_grain,
     apply_cinematic_dark_theme,
+    apply_noir_preset,
 )
 from PIL import Image
 
@@ -107,6 +112,10 @@ cinematic = apply_cinematic_dark_theme(
     monochrome_style='moody',
 )
 cinematic.save('cinematic.jpg')
+
+# Apply noir preset in one line
+noir = apply_noir_preset(image)
+noir.save('noir.jpg')
 ```
 
 #### Batch Processing (Library)
@@ -141,6 +150,7 @@ print(f"Errors: {stats['errors']}")
  - `--cinematic`: Enable cinematic preset (contrast + shadows + vignette + grain)
  - `--no-vignette`: Disable vignette when `--cinematic` is used
  - `--no-grain`: Disable film grain when `--cinematic` is used
+ - `--noir`: Enable noir preset (strong contrast, moody monochrome)
 
 ## Examples
 
