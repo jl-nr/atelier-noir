@@ -10,8 +10,8 @@ A neat and small Python tool for applying dark-themed transformations to images:
 - - **CLI & Library**: Use as a command-line tool or import as a Python library
 - **Batch Processing**: Process entire directories of images
 - **Cinematic Look**: Optional vignette and film grain preset for a moody, filmic dark theme
-- **Noir Preset**: One-shot strong-contrast, moody monochrome preset
 - **Dramatic Preset**: Bold, high-contrast preset with deep shadows for striking effects
+- **Noir Preset**: One-shot strong-contrast, moody monochrome preset
 
 ## Installation
 
