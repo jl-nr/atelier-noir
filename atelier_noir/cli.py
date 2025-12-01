@@ -13,6 +13,7 @@ from .transformations import (
     apply_monochrome,
     apply_dark_theme,
     apply_cinematic_dark_theme,
+    apply_noir_preset,
 )
 from .pipeline import process_batch
 
@@ -37,6 +38,9 @@ Examples:
 
   # Cinematic dark look with vignette and grain
   atelier-noir input.jpg -o output.jpg --cinematic
+
+  # Noir preset (strong contrast, moody monochrome)
+  atelier-noir input.jpg -o output.jpg --noir
         """
     )
 
@@ -111,6 +115,11 @@ Examples:
         action='store_true',
         help='Disable film grain (only meaningful with --cinematic)'
     )
+    parser.add_argument(
+        '--noir',
+        action='store_true',
+        help='Use noir preset (strong contrast, moody monochrome)'
+    )
 
     args = parser.parse_args()
 
@@ -129,6 +138,7 @@ Examples:
             monochrome=args.monochrome,
             monochrome_style=args.monochrome_style,
             cinematic=args.cinematic,
+            noir=args.noir,
             vignette=None if not args.cinematic else (False if args.no_vignette else True),
             grain=None if not args.cinematic else (False if args.no_grain else True),
             overwrite=args.overwrite
@@ -157,7 +167,9 @@ Examples:
         image = Image.open(input_path)
 
         # Apply transformations
-        if args.cinematic:
+        if args.noir:
+            processed = apply_noir_preset(image)
+        elif args.cinematic:
             processed = apply_cinematic_dark_theme(
                 image,
                 contrast_factor=args.contrast,
