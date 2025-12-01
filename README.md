@@ -9,8 +9,9 @@ A neat and small Python tool for applying dark-themed transformations to images:
 - **Monochrome Filters**: Multiple dark-themed monochrome styles
 - **Batch Processing**: Process entire directories of images
 - **CLI & Library**: Use as a command-line tool or import as a Python library
- - **Cinematic Look**: Optional vignette and film grain preset for a moody, filmic dark theme
- - **Noir Preset**: One-shot strong-contrast, moody monochrome preset
+ - **Cinematic Look (New)**: Optional vignette and film grain preset for a moody, filmic dark theme
+ - **Noir Preset (New)**: One-shot strong-contrast, moody monochrome preset
+ - **Dramatic Preset (New)**: Bold, high-contrast preset with deep shadows for striking effects
 
 ## Installation
 
@@ -51,6 +52,9 @@ atelier-noir input.jpg -o output.jpg --cinematic --no-grain
 
 # Noir preset (high contrast, moody monochrome)
 atelier-noir input.jpg -o output.jpg --noir
+
+# Dramatic preset (very high contrast, deep shadows)
+atelier-noir input.jpg -o output.jpg --dramatic
 ```
 
 #### Batch Processing
@@ -64,6 +68,9 @@ atelier-noir --batch input_dir/ output_dir/ --contrast 1.8 --shadows 0.6 --monoc
 
 # Batch with cinematic preset
 atelier-noir --batch input_dir/ output_dir/ --cinematic
+
+# Batch with dramatic preset
+atelier-noir --batch input_dir/ output_dir/ --dramatic
 
 # Overwrite existing files
 atelier-noir --batch input_dir/ output_dir/ --overwrite
@@ -81,6 +88,7 @@ from atelier_noir import (
     add_film_grain,
     apply_cinematic_dark_theme,
     apply_noir_preset,
+    apply_dramatic_preset,
 )
 from PIL import Image
 
@@ -116,6 +124,10 @@ cinematic.save('cinematic.jpg')
 # Apply noir preset in one line
 noir = apply_noir_preset(image)
 noir.save('noir.jpg')
+
+# Apply dramatic preset for bold, striking look
+dramatic = apply_dramatic_preset(image)
+dramatic.save('dramatic.jpg')
 ```
 
 #### Batch Processing (Library)
@@ -151,6 +163,7 @@ print(f"Errors: {stats['errors']}")
  - `--no-vignette`: Disable vignette when `--cinematic` is used
  - `--no-grain`: Disable film grain when `--cinematic` is used
  - `--noir`: Enable noir preset (strong contrast, moody monochrome)
+ - `--dramatic`: Enable dramatic preset (very high contrast, deep shadows)
 
 ## Examples
 
