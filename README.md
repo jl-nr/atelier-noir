@@ -164,8 +164,8 @@ Following parameters are supported:
  - `--cinematic`: Enable cinematic preset (contrast + shadows + vignette + grain)
  - `--no-vignette`: Disable vignette when `--cinematic` is used
  - `--no-grain`: Disable film grain when `--cinematic` is used
- - `--noir`: Enable noir preset (strong contrast, moody monochrome)
  - `--dramatic`: Enable dramatic preset (very high contrast, deep shadows)
+ - `--noir`: Enable noir preset (strong contrast, moody monochrome)
 
 ## Examples
 
