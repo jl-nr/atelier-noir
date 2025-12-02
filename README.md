@@ -50,11 +50,11 @@ atelier-noir input.jpg -o output.jpg --cinematic
 # Cinematic without grain
 atelier-noir input.jpg -o output.jpg --cinematic --no-grain
 
-# Noir preset (high contrast, moody monochrome)
-atelier-noir input.jpg -o output.jpg --noir
-
 # Dramatic preset (very high contrast, deep shadows)
 atelier-noir input.jpg -o output.jpg --dramatic
+
+# Noir preset (high contrast, moody monochrome)
+atelier-noir input.jpg -o output.jpg --noir
 ```
 
 #### Batch Processing
