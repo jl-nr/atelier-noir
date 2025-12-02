@@ -19,7 +19,7 @@ A neat and small Python tool and library for applying dark-themed transformation
 pip install -e .
 ```
 
-Or install dependencies directly:
+Or install dependencies from requirements.txt:
 
 ```bash
 pip install -r requirements.txt
