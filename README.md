@@ -7,7 +7,7 @@ A neat and small Python tool and library for applying dark-themed transformation
 - **Contrast Boosting**: Enhance image contrast for dramatic effects
 - **Monochrome Filters**: Multiple dark-themed monochrome styles
 - **Shadow Enhancement**: Deepen shadows while preserving highlights
-- **CLI and Library**: Use as a command-line tool or import as a Python library
+- **CLI and Library**: Use as a command-line tool or import as a Python library to use in your apps
 - **Batch Processing**: Process entire directories of images
 - **Cinematic Look**: Optional vignette and film grain preset for a moody, filmic dark theme
 - **Dramatic Preset**: Bold, high-contrast preset with deep shadows for striking effects
