@@ -152,6 +152,8 @@ print(f"Errors: {stats['errors']}")
 
 ## Parameters
 
+Following parameters are supported:
+
 - `--contrast`: Contrast enhancement factor (default: 1.5)
 - `--shadows`: Shadow enhancement factor, lower = darker shadows (default: 0.7)
 - `--monochrome`: Apply monochrome filter
