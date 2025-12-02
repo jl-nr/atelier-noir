@@ -1,6 +1,6 @@
 # Atelier Noir
 
-A neat and small Python tool for applying dark-themed transformations to images: contrast boosting, shadow enhancement, monochrome filters, and a simple batch pipeline. Perfect for stylized preprocessing.
+A neat and small Python tool and library for applying dark-themed transformations to images: contrast boosting, shadow enhancement, monochrome filters, and a simple batch pipeline. Perfect for stylized preprocessing.
 
 ## Features
 
