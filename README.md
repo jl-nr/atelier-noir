@@ -169,14 +169,14 @@ Following parameters are supported:
 
 ## Examples
 
-### High Contrast Dark Theme
-```bash
-atelier-noir photo.jpg -o dark_photo.jpg --contrast 2.0 --shadows 0.6
-```
-
 ### Moody Monochrome
 ```bash
 atelier-noir photo.jpg -o moody_photo.jpg --monochrome --monochrome-style moody
+```
+
+### High Contrast Dark Theme
+```bash
+atelier-noir photo.jpg -o dark_photo.jpg --contrast 2.0 --shadows 0.6
 ```
 
 ### Batch Processing with Custom Settings
