@@ -57,7 +57,7 @@ atelier-noir input.jpg -o output.jpg --dramatic
 atelier-noir input.jpg -o output.jpg --noir
 ```
 
-#### Batch Processing
+#### Batch Processing (CLI)
 
 ```bash
 # Process all images in a directory
