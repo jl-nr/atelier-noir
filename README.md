@@ -13,7 +13,7 @@ A neat and small Python tool and library for applying dark-themed transformation
 - **Dramatic Preset**: Bold, high-contrast preset with deep shadows for striking effects
 - **Noir Preset**: One-shot strong-contrast, moody monochrome preset
 
-## Installation
+## Quick Installation
 
 ```bash
 pip install -e .
