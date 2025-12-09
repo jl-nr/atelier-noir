@@ -181,7 +181,7 @@ atelier-noir photo.jpg -o dark_photo.jpg --contrast 2.0 --shadows 0.6
 
 ### Batch Processing with Custom Settings
 ```bash
-atelier-noir --batch photos/ dark_photos/ --contrast 1.8 --shadows 0.65 --monochrome --monochrome-style high_contrast
+atelier-noir --batch photos/ dark_photos/ --contrast 1.7 --shadows 0.65 --monochrome --monochrome-style high_contrast
 ```
 
 ## License
